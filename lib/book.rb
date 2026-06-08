@@ -23,6 +23,18 @@ class Book
   end
 
   ##
+  # @return [Book]
+  def self.developers_handbook
+    repository.books.find { _1.name == "developers-handbook" }
+  end
+
+  ##
+  # @return [Book]
+  def self.porters_handbook
+    repository.books.find { _1.name == "porters-handbook" }
+  end
+
+  ##
   # @return [Repository]
   def self.repository
     @repository ||= Repository.new

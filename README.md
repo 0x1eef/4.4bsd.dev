@@ -5,10 +5,9 @@ This project provides the
 as a SQLite3 database that can be queried with FTS through a headless
 web interface that scripts can easily interact with. This project
 began as a way to provide [robert](https://github.com/llmrb/robert)
-with access to the FreeBSD handbook, which is where the focus remains
-at this early stage,  although the FreeBSD documentation repository 
-contains **multiple books** beyond the standard handbook (eg the 
-developers handbook, the porters handbook, etc). 
+with access to the FreeBSD handbook and has since evolved to cover
+**multiple books**: the user's handbook, the developer's handbook, and
+the porter's handbook. More might follow.
 
 ## Usage
 

@@ -37,20 +37,31 @@ def insert_section(section, index, book_id, chapter_id)
 end
 
 ##
+# Books
+
+def books
+  [
+    Book.handbook,
+    Book.developers_handbook,
+    Book.porters_handbook
+  ]
+end
+
+##
 # main
 
 def main(argv)
-  book    = Book.handbook
-  book_id = insert_book(book)
-
-  book.chapters.each do |chapter|
-    puts "handbook: insert chapter #{chapter.name}"
-    chapter_id = insert_chapter(chapter, book_id)
-    puts "handbook: ok"
-    chapter.sections.each_with_index do |section, index|
-      puts "handbook: insert section"
-      insert_section(section, index, book_id, chapter_id)
+  books.each do |book|
+    book_id = insert_book(book)
+    book.chapters.each do |chapter|
+      puts "handbook: insert chapter #{chapter.name}"
+      chapter_id = insert_chapter(chapter, book_id)
       puts "handbook: ok"
+      chapter.sections.each_with_index do |section, index|
+        puts "handbook: insert section"
+        insert_section(section, index, book_id, chapter_id)
+        puts "handbook: ok"
+      end
     end
   end
   puts "handbook: #{Book.database}"
