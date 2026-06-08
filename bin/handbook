@@ -19,7 +19,7 @@ def main(argv)
   when "web"
     Process.spawn File.join("libexec", "handbook", argv[0]), *argv[1..]
     Process.wait
-  when "new-database"
+  when "create-database"
     Process.spawn File.join("libexec", "handbook", argv[0]), *argv[1..]
     Process.wait
   else usage
