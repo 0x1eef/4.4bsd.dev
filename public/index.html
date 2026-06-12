@@ -3,27 +3,60 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>4.4BSD</title>
+    <title>4.4BSD - FreeBSD Services, Robert SSH, and Handbook Search</title>
     <link rel="canonical" href="https://4.4bsd.dev/">
     <link rel="icon" href="/favicon.ico" sizes="any">
 
     <!-- SEO -->
-    <meta name="description" content="FreeBSD services for the BSD community — including Robert, an AI tutor accessible via SSH, and full-text search across the FreeBSD handbooks.">
+    <meta name="description" content="FreeBSD services for the BSD community: try Robert over public SSH with no install, or query full-text search across the FreeBSD user, developer, and porter handbooks.">
     <meta name="robots" content="index,follow">
 
     <!-- OpenGraph -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="4.4BSD">
-    <meta property="og:title" content="4.4BSD">
-    <meta property="og:description" content="FreeBSD services for the BSD community — including Robert, an AI tutor accessible via SSH, and full-text search across the FreeBSD handbooks.">
+    <meta property="og:title" content="4.4BSD - FreeBSD Services">
+    <meta property="og:description" content="Try Robert over public SSH with no install, or query full-text search across the FreeBSD user, developer, and porter handbooks.">
     <meta property="og:url" content="https://4.4bsd.dev/">
     <meta property="og:image" content="https://4.4bsd.dev/images/beastie.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="4.4BSD">
-    <meta name="twitter:description" content="FreeBSD services for the BSD community — including Robert, an AI tutor accessible via SSH, and full-text search across the FreeBSD handbooks.">
+    <meta name="twitter:title" content="4.4BSD - FreeBSD Services">
+    <meta name="twitter:description" content="Try Robert over public SSH with no install, or query full-text search across the FreeBSD user, developer, and porter handbooks.">
     <meta name="twitter:image" content="https://4.4bsd.dev/images/beastie.png">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "4.4BSD",
+        "url": "https://4.4bsd.dev/",
+        "description": "FreeBSD services for the BSD community: Robert over public SSH and full-text search across the FreeBSD handbooks.",
+        "inLanguage": "en",
+        "publisher": {
+          "@type": "Organization",
+          "name": "4.4bsd.dev"
+        },
+        "hasPart": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "Robert",
+            "url": "https://4.4bsd.dev/robert/",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "FreeBSD",
+            "description": "A FreeBSD expert available through a public SSH instance and as a statically linked binary.",
+            "isAccessibleForFree": true
+          },
+          {
+            "@type": "WebAPI",
+            "name": "FreeBSD Handbook Search",
+            "url": "https://4.4bsd.dev/handbook/u/search",
+            "description": "HTTP JSON full-text search across the FreeBSD user, developer, and porter handbooks.",
+            "isAccessibleForFree": true
+          }
+        ]
+      }
+    </script>
 
     <style>
       :root {
@@ -56,7 +89,6 @@
       .hero {
         text-align: center;
         padding: 32px 0 40px;
-        border-bottom: 1px solid var(--line);
       }
 
       .hero img {
@@ -83,11 +115,11 @@
 
       .service {
         padding: 32px 0;
-        border-bottom: 1px solid var(--line);
       }
 
-      .service:last-of-type {
-        border-bottom: none;
+      .service,
+      .footer {
+        border-top: 1px solid var(--line);
       }
 
       .service h2 {
@@ -108,7 +140,6 @@
 
       .terminal {
         margin: 14px 0 0;
-        border-radius: 8px;
         overflow: hidden;
         background: #000;
         border: 1px solid var(--line);
@@ -117,25 +148,21 @@
       .terminal-bar {
         display: flex;
         align-items: center;
-        gap: 7px;
-        padding: 10px 14px;
-        background: var(--surface);
-        border-bottom: 1px solid var(--line);
+        padding: 6px 10px;
+        background: #0b0f14;
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+        border-bottom: 1px solid #20262d;
       }
 
-      .terminal-bar .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
+      .terminal-bar::before {
+        content: "ssh";
       }
-
-      .terminal-bar .dot:nth-child(1) { background: #ff5f56; }
-      .terminal-bar .dot:nth-child(2) { background: #ffbd2e; }
-      .terminal-bar .dot:nth-child(3) { background: #27c93f; }
 
       .terminal pre {
         margin: 0;
-        padding: 16px;
+        padding: 14px 16px 16px;
         overflow-x: auto;
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         font-size: clamp(16px, 3vw, 22px);
@@ -197,7 +224,6 @@
       .footer {
         margin-top: 32px;
         padding-top: 24px;
-        border-top: 1px solid var(--line);
         color: var(--muted);
         font-size: 13px;
         display: flex;
@@ -234,14 +260,13 @@
           A statically linked, 3MB binary that teaches and troubleshoots
           FreeBSD. He searches man pages, the FreeBSD handbooks, the ports
           tree, and the package database, and grounds every answer in
-          official FreeBSD documentation.
+          official FreeBSD documentation. Robert is also available through
+          a public SSH instance, so it can be tried without installing
+          anything, and is free to use within reason.
+          <a href="/robert/">Learn more</a>.
         </p>
         <div class="terminal">
-          <div class="terminal-bar">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
+          <div class="terminal-bar"></div>
           <pre><code>ssh robert@4.4bsd.dev</code></pre>
         </div>
       </div>
