@@ -27,10 +27,12 @@
 
     <style>
       :root {
-        --bg: #f7f7f4;
-        --fg: #111;
-        --muted: #555;
-        --line: #ccc;
+        --bg: #0f1419;
+        --fg: #e1e4e8;
+        --muted: #8b949e;
+        --accent: #3fb950;
+        --line: #30363d;
+        --surface: #161b22;
       }
 
       * {
@@ -42,156 +44,212 @@
         background: var(--bg);
         color: var(--fg);
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        line-height: 1.55;
+        line-height: 1.6;
       }
 
       main {
-        width: min(880px, calc(100% - 32px));
+        width: min(760px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 48px 0;
+        padding: 56px 0 80px;
       }
 
-      header {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 160px;
-        gap: 32px;
-        align-items: start;
+      .hero {
+        text-align: center;
+        padding: 32px 0 40px;
         border-bottom: 1px solid var(--line);
-        padding-bottom: 28px;
       }
 
-      .hero-image {
-        width: 160px;
+      .hero img {
+        width: 120px;
         height: auto;
+        margin-bottom: 20px;
       }
 
-      h1 {
-        margin: 0 0 10px;
-        font-size: 42px;
-        line-height: 1;
-        letter-spacing: 0;
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: 36px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
       }
 
-      .summary {
-        max-width: 680px;
+      .hero p {
         margin: 0;
         color: var(--muted);
-        font-size: 18px;
+        font-size: 16px;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      section {
+      .service {
+        padding: 32px 0;
         border-bottom: 1px solid var(--line);
-        padding: 28px 0;
       }
 
-      h2 {
+      .service:last-of-type {
+        border-bottom: none;
+      }
+
+      .service h2 {
         margin: 0 0 12px;
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: 600;
       }
 
-      p {
+      .service p {
         margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 15px;
       }
 
-      ul {
+      .service p:last-child {
+        margin-bottom: 0;
+      }
+
+      .terminal {
+        margin: 14px 0 0;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #000;
+        border: 1px solid var(--line);
+      }
+
+      .terminal-bar {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 10px 14px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .terminal-bar .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      .terminal-bar .dot:nth-child(1) { background: #ff5f56; }
+      .terminal-bar .dot:nth-child(2) { background: #ffbd2e; }
+      .terminal-bar .dot:nth-child(3) { background: #27c93f; }
+
+      .terminal pre {
         margin: 0;
-        padding-left: 22px;
+        padding: 16px;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: clamp(16px, 3vw, 22px);
+        line-height: 1.5;
+        color: var(--accent);
+        background: #000;
       }
 
-      code,
-      pre {
+      .terminal pre code {
+        background: none;
+        padding: 0;
+        border: none;
+      }
+
+      code, pre {
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       }
 
       pre {
         margin: 14px 0 0;
         overflow-x: auto;
-        color: var(--fg);
         font-size: 14px;
+        line-height: 1.5;
       }
 
       pre code {
         display: block;
-        padding: 10px 0 10px 14px;
+        padding: 12px 0 12px 14px;
         border-left: 3px solid var(--line);
-        line-height: 1.55;
+        background: var(--surface);
+        border-radius: 0 6px 6px 0;
+        color: var(--fg);
       }
 
       pre code.sh {
-        border-left-color: #b21b1b;
-      }
-
-      .ssh-command {
-        display: flex;
-        align-items: center;
-        min-width: 0;
-        margin: 12px 0 0;
-        padding: 0;
-        overflow-x: auto;
-        background: #fff;
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        border-left: 3px solid #b21b1b;
-        color: var(--fg);
-        font-size: clamp(20px, 4vw, 30px);
-        line-height: 1.25;
-      }
-
-      .ssh-command code {
-        display: block;
-        padding: 10px 0 10px 14px;
-        white-space: nowrap;
+        border-left-color: var(--accent);
       }
 
       a {
-        color: inherit;
+        color: var(--accent);
+        text-decoration: none;
       }
 
-      footer {
-        padding-top: 22px;
+      a:hover {
+        text-decoration: underline;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
         color: var(--muted);
-        font-size: 14px;
+        font-size: 15px;
       }
 
-      @media (max-width: 620px) {
-        header {
-          grid-template-columns: 1fr;
+      ul li {
+        margin-bottom: 4px;
+      }
+
+      .footer {
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 600px) {
+        main {
+          padding: 32px 0 56px;
         }
 
-        .hero-image {
-          width: 120px;
+        .hero img {
+          width: 90px;
+        }
+
+        .hero h1 {
+          font-size: 28px;
         }
       }
     </style>
   </head>
   <body>
     <main>
-      <header>
-        <div>
-          <h1>4.4BSD</h1>
-          <p class="summary">
-            FreeBSD services for the BSD community. Publicly accessible, no
-            signup required.
-          </p>
-        </div>
-        <img class="hero-image" src="/images/beastie.png" alt="Beastie">
-      </header>
+      <div class="hero">
+        <img src="/images/beastie.png" alt="Beastie">
+        <h1>4.4BSD</h1>
+        <p>FreeBSD services for the BSD community. Publicly accessible, no signup required.</p>
+      </div>
 
-      <section>
+      <div class="service">
         <h2>Robert</h2>
         <p>
-          Robert is a statically linked, 3MB binary that teaches and
-          troubleshoots FreeBSD. He searches man pages, the FreeBSD
-          handbooks, the ports tree, and the package database, and grounds
-          every answer in official FreeBSD documentation.
+          A statically linked, 3MB binary that teaches and troubleshoots
+          FreeBSD. He searches man pages, the FreeBSD handbooks, the ports
+          tree, and the package database, and grounds every answer in
+          official FreeBSD documentation.
         </p>
-        <pre class="ssh-command"><code>ssh robert@4.4bsd.dev</code></pre>
-        <p>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <pre><code>ssh robert@4.4bsd.dev</code></pre>
+        </div>
+        <p style="margin-top:10px;color:var(--muted);font-size:14px;">
           No signup. No account. Just SSH.
         </p>
-      </section>
+      </div>
 
-      <section>
+      <div class="service">
         <h2>Handbook Search</h2>
         <p>
           Full-text search across the FreeBSD handbooks via an HTTP+JSON
@@ -209,18 +267,16 @@ fetch -qo - 'https://4.4bsd.dev/handbook/d/search?q=compiler'
 ##
 # Search the porter's handbook
 fetch -qo - 'https://4.4bsd.dev/handbook/p/search?q=Makefile'</code></pre>
-        <p>
-          Indexed books:
-        </p>
+        <p style="margin-top:14px;">Indexed books:</p>
         <ul>
           <li>FreeBSD User's Handbook</li>
           <li>FreeBSD Developer's Handbook</li>
           <li>FreeBSD Porter's Handbook</li>
         </ul>
-      </section>
+      </div>
 
-      <section>
-        <h2>Is it open source?</h2>
+      <div class="service">
+        <h2>Open Source</h2>
         <p>
           Both services are 100% open source. The handbook search can be
           <a href="https://github.com/0x1eef/4.4bsd.dev#readme">self-hosted</a>
@@ -229,47 +285,25 @@ fetch -qo - 'https://4.4bsd.dev/handbook/p/search?q=Makefile'</code></pre>
           <a href="https://github.com/llmrb/robert#readme">open source</a>
           and can be built from source.
         </p>
-      </section>
+      </div>
 
-      <section>
+      <div class="service">
         <h2>4.4BSD</h2>
         <p>
-          The name 4.4BSD might look strange to an unfamiliar eye but it
-          carries a lot of weight — both historically and for me personally.
+          The name comes from the final release of BSD from the Computer
+          Systems Research Group at Berkeley, which served as the foundation
+          for FreeBSD, OpenBSD, and NetBSD. It also happens to be the
+          release that started it all for me — FreeBSD 4.4-RELEASE on a CD
+          in the mail, Windows 98 on the desktop, and a summer that changed
+          everything.
         </p>
-        <p>
-          <strong>History</strong>
-        </p>
-        <p>
-          It stands as the final release of BSD from the Computer Systems
-          Research Group at Berkeley. The final release served as the
-          foundation for what went on to become FreeBSD, OpenBSD, and
-          NetBSD.
-        </p>
-        <p>
-          <strong>Personal</strong>
-        </p>
-        <p>
-          I was 14 or 15 years old when I was sent a CD of FreeBSD
-          4.4-RELEASE. That's a long time ago. Windows 98 can be your
-          anchor. I picked it up at the post office, and after playing with
-          it for the summer, I had become obsessed with it. It felt like a
-          system that wanted to teach you how it works, and I loved that.
-          FreeBSD 4.4-RELEASE became my introduction to BSD, and the name
-          4.4BSD comes from the final release from CSRG at Berkeley.
-        </p>
-      </section>
+      </div>
 
-      <section>
-        <h2>Contact</h2>
-        <p>
-          I can be reached at
-          <a href="mailto:0x1eef@hardenedbsd.org">0x1eef@hardenedbsd.org</a>.
-        </p>
-      </section>
-      <footer>
-        0BSD licensed.
-      </footer>
+      <div class="footer">
+        <span>0BSD licensed</span>
+        <span>&middot;</span>
+        <a href="mailto:0x1eef@hardenedbsd.org">Contact</a>
+      </div>
     </main>
   </body>
 </html>
