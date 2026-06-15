@@ -19,13 +19,13 @@
     <meta property="og:title" content="Robert - FreeBSD Expert">
     <meta property="og:description" content="Robert is designed to help you learn and troubleshoot FreeBSD using official documentation, manual pages, source code, ports, and packages.">
     <meta property="og:url" content="https://4.4bsd.dev/robert/">
-    <meta property="og:image" content="https://4.4bsd.dev/robert/robert4.png">
+    <meta property="og:image" content="https://4.4bsd.dev/images/4.4bsd.svg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Robert - FreeBSD Expert">
     <meta name="twitter:description" content="Robert is designed to help you learn and troubleshoot FreeBSD using official documentation, manual pages, source code, ports, and packages.">
-    <meta name="twitter:image" content="https://4.4bsd.dev/robert/robert4.png">
+    <meta name="twitter:image" content="https://4.4bsd.dev/images/4.4bsd.svg">
 
     <script type="application/ld+json">
       {
@@ -69,14 +69,23 @@
       main {
         width: min(760px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 48px 0 72px;
+        padding: 104px 0 72px;
+      }
+
+      .site-logo {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        display: block;
+      }
+
+      .site-logo img {
+        width: 220px;
+        height: auto;
+        display: block;
       }
 
       header {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 120px;
-        gap: 24px;
-        align-items: start;
         border-bottom: 1px solid var(--line);
         padding-bottom: 24px;
       }
@@ -93,11 +102,6 @@
         margin: 0;
         color: var(--muted);
         font-size: 16px;
-      }
-
-      .hero-image {
-        width: 120px;
-        height: auto;
       }
 
       section {
@@ -269,16 +273,16 @@
 
       @media (max-width: 720px) {
         main {
-          padding: 32px 0 56px;
+          padding: 96px 0 56px;
         }
 
-        header {
-          grid-template-columns: minmax(0, 1fr) 90px;
-          gap: 16px;
+        .site-logo {
+          top: 18px;
+          left: 16px;
         }
 
-        .hero-image {
-          width: 90px;
+        .site-logo img {
+          width: 180px;
         }
 
         h1 {
@@ -292,6 +296,9 @@
     </style>
   </head>
   <body>
+    <a class="site-logo" href="/" aria-label="4.4BSD home">
+      <img src="/images/4.4bsd.svg" alt="4.4BSD BSD Software">
+    </a>
     <main>
       <header>
         <div>
@@ -302,7 +309,6 @@
             ports, and packages.
           </p>
         </div>
-        <img class="hero-image" src="/images/beastie.png" alt="Beastie">
       </header>
 
       <section>

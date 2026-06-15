@@ -17,13 +17,13 @@
     <meta property="og:title" content="Resources and services for the FreeBSD community">
     <meta property="og:description" content="Robert over public SSH and full-text search across the FreeBSD user, developer, and porter handbooks.">
     <meta property="og:url" content="https://4.4bsd.dev/">
-    <meta property="og:image" content="https://4.4bsd.dev/images/beastie.png">
+    <meta property="og:image" content="https://4.4bsd.dev/images/4.4bsd.svg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Resources and services for the FreeBSD community">
     <meta name="twitter:description" content="Robert over public SSH and full-text search across the FreeBSD user, developer, and porter handbooks.">
-    <meta name="twitter:image" content="https://4.4bsd.dev/images/beastie.png">
+    <meta name="twitter:image" content="https://4.4bsd.dev/images/4.4bsd.svg">
 
     <script type="application/ld+json">
       {
@@ -91,10 +91,22 @@
         padding: 32px 0 40px;
       }
 
-      .hero img {
-        width: 120px;
+      .hero-logo {
+        width: min(520px, 100%);
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 8px;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
       }
 
       .hero h1 {
@@ -111,6 +123,12 @@
         max-width: 520px;
         margin-left: auto;
         margin-right: auto;
+      }
+
+      .hero .ssh-console {
+        max-width: 360px;
+        margin: 8px auto 0;
+        text-align: center;
       }
 
       .service {
@@ -244,10 +262,6 @@
           padding: 32px 0 56px;
         }
 
-        .hero img {
-          width: 90px;
-        }
-
         .hero h1 {
           font-size: 28px;
         }
@@ -257,9 +271,9 @@
   <body>
     <main>
       <div class="hero">
-        <img src="/images/beastie.png" alt="Beastie">
-        <h1>4.4BSD</h1>
-        <p>Resources and services for the FreeBSD community. <br> Free to use. No account required.</p>
+        <img class="hero-logo" src="/images/4.4bsd.svg" alt="4.4BSD BSD Software">
+        <h1 class="sr-only">4.4BSD</h1>
+        <pre class="ssh-console"><code>$ ssh robert@4.4bsd.dev</code></pre>
       </div>
 
       <div class="service">
